@@ -1,7 +1,7 @@
 var $winHeight= $(window).innerHeight(),
 		$winWidth= $(window).innerWidth();
 
-		for(i=1;i<=s41;i++){
+		for(i=1;i<=41;i++){
 			divToAdd=document.createElement('div');
 			divToAdd.setAttribute('class','xmasTreePart xmasTreePartNo'+i)
 			$('.xmasTree').append(divToAdd)
