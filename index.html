@@ -3,48 +3,76 @@
 <link rel="stylesheet" href="style.css">
 <script src="script.js"></script>
 <title>YO4C Network</title>
-<div class="header">
-	<h1>Christmas Countdown</h1>
-	<div>2021</div>
+<div ng-app="myApp" class="ng-cloak">
+		<div class="container" ng-controller="mainCtrl">
+			<h1 class="white-text center">Countdown to Christmas {{year}} </h1>
+				<div class="row">
+						<div class="col s12 m3">
+								<div class="card white darken-1 z-depth-3">
+										<div class="card-content red-text">
+												<h2 class="center">Days</h2>
+												<h2 class="center">{{days}}</h2>
+										</div>
+								</div>
+						</div>
+
+						<div class="col s12 m3">
+								<div class="card white darken-1 z-depth-3">
+										<div class="card-content red-text">
+												<h2 class="center">Hrs</h2>
+												<h2 class="center">{{hours < 10 ? '0' + hours : hours}}</h2>
+										</div>
+								</div>
+						</div>
+						<div class="col s12 m3">
+								<div class="card white darken-1 z-depth-3">
+										<div class="card-content red-text">
+												<h2 class="center">Mins</h2>
+												<h2 class="center">{{minutes < 10 ? '0'+minutes : minutes}}</h2>
+										</div>
+								</div>
+						</div>
+						<div class="col s12 m3">
+								<div class="card white darken-1 z-depth-3">
+										<div class="card-content red-text">
+												<h2 class="center">Secs</h2>
+												<h2 class="center">{{seconds < 10 ? '0'+seconds : seconds}}</h2>
+										</div>
+								</div>
+						</div>
+				</div>
+							<div class="row">								
+							<h1 class="white-text center" ng-if="showAltCard">OR </h1>
+		<h1 class="white-text center" ng-if="!showAltCard">Try one of these</h1>
+		<div class="row center">
+				<button style="background-color:#3E5869; margin-bottom: 5px;" class="btn waves-effect waves-light" ng-click="showCard('Months')">Months</button>
+				<button style="background-color:#3E5869; margin-bottom: 5px;" class="btn waves-effect waves-light" ng-click="showCard('Weeks')">Weeks</button>
+				<button style="background-color:#3E5869; margin-bottom: 5px;" class="btn waves-effect waves-light" ng-click="showCard('Days')">Days</button>
+			<button style="background-color:#3E5869; margin-bottom: 5px;" class="btn waves-effect waves-light" ng-click="showCard('Sleeps')">Sleeps</button>
+				<button style="background-color:#3E5869; margin-bottom: 5px;" class="btn waves-effect waves-light" ng-click="showCard('Hours')">Hours</button>
+				<button style="background-color:#3E5869; margin-bottom: 5px;" class="btn waves-effect waves-light" ng-click="showCard('Minutes')">Minutes</button>
+				<button style="background-color:#3E5869; margin-bottom: 5px;" class="btn waves-effect waves-light" ng-click="showCard('Seconds')">Seconds</button>
+		</div>
+		<div class="row" ng-if="showAltCard">
+				<div class="col s12">
+						<div class="card white darken-1 z-depth-4">
+								<div class="card-content red-text">
+										<h2 class="center">{{show}}</h2>
+										<h2 class="center" ng-show="show == 'Months'">{{monthsToGo}}</h2>
+										<h2 class="center" ng-show="show == 'Weeks'">{{weeksToGo}}</h2>
+										<h2 class="center" ng-show="show == 'Days'">{{daysToGo}}</h2>
+									<h2 class="center" ng-show="show == 'Sleeps'">{{sleepsToGo}}</h2>
+										<h2 class="center" ng-show="show == 'Hours'">{{hoursToGo}}</h2>
+										<h2 class="center" ng-show="show == 'Minutes'">{{minutesToGo}}</h2>
+										<h2 class="center" ng-show="show == 'Seconds'">{{secondsToGo}}</h2>
+								</div>
+						</div>
+				</div>
+		</div>
 </div>
-
-<div id="countdown-box" class="cdb">
-	<div class="cdi">
-		<span id="d">0</span>
-		<div id="d-lbl" class="cdi-lbl">DAYS</div>
-	</div>
-	<div class="cdi">
-		<span id="h">0</span>
-		<div id="h-lbl" class="cdi-lbl">HOURS</div>
-	</div>
-	<div id="m-break"></div>
-	<div class="cdi">
-		<span id="m">0</span>
-		<div id="m-lbl" class="cdi-lbl">MINUTES</div>
-	</div>
-	<div class="cdi">
-		<span id="s">0</span>
-		<div id="s-lbl" class="cdi-lbl">SECONDS</div>
-	</div>
 </div>
-
-<div id="controls">
-	<span id="play-toggle" class="material-icons">volume_off</span><!-- volume_up-->
-	<span id="queue-toggle" class="material-icons">arrow_circle_up</span>
 </div>
-
-<div id="music-list">
-	<ul>
-		<li>christmas-party.mp3</li>
-		<li>christmas-rock.mp3</li>
-		<li class="active">happy-new-year.mp3</li>
-		<li>jingle-bells.mp3</li>
-		<li>snowflake.mp3</li>
-		<li>upbeat-countdown.mp3</li>
-	</ul>
+<div class="fixed-action-btn scrollup" style="bottom: 25px; right: 24px;">
+		<a class="btn-floating btn-large purple" href="https://codepen.io/burgessdd/full/MaKeVv/" target="_blank"><img class="circle responsive-img" src="https://avatars3.githubusercontent.com/u/2906053?v=3&s=460" alt="" /></a>
 </div>
-
-<canvas id="canvas"></canvas>
-<div id="world"></div>
-
-<audio id="audio" controls="false" autoplay type="audio/mp3" src="https://raw.githubusercontent.com/ZaneWesley/image-dropbox/main/christmas-audio/upbeat-countdown.mp3" style="display: none;"></audio>
+					</div>
