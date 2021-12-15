@@ -1,26 +1,492 @@
-body {
-  background-color: black;
-}
+@import url('https://fonts.googleapis.com/css?family=Lobster');
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
-.frame {
-  display: inline-block;
-  padding: 0;
-  border-radius: 3px;
-  font-size: 7em;
-  text-shadow: 1px 2px  white;
-  color: green;
-  text-align: center;
-}
-.frame canvas {
-  display: block;
-  padding: 60px 0px 0px 0px;
-  background-color: black;
-}
+*{ margin: 0; padding: 0; }
+html, body{
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	font-family: 'Ubuntu', sans-serif;
+	background: #ba0001; /* Old browsers */
+	background: -moz-radial-gradient(center, ellipse cover,  #ba0001 0%, #630505 100%); /* FF3.6+ */
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ba0001), color-stop(100%,#630505)); /* Chrome,Safari4+ */
+	background: -webkit-radial-gradient(center, ellipse cover,  #ba0001 0%,#630505 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-radial-gradient(center, ellipse cover,  #ba0001 0%,#630505 100%); /* Opera 12+ */
+	background: -ms-radial-gradient(center, ellipse cover,  #ba0001 0%,#630505 100%); /* IE10+ */
+	background: radial-gradient(ellipse at center,  #ba0001 0%,#630505 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ba0001', endColorstr='#630505',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
-#tree{
-display:block;
-position:absolute;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%);
+}
+.xmasTree{
+	width: 280px;
+	height: 280px;
+	margin: -250px auto 0 auto;
+	position: relative;
+	top: 50%;
+}
+.merryXmasGreet{
+	opacity: 0;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	color: white;
+
+			margin: 51px 0 0 -145px;
+			font-size: 25px;
+}
+.merryXmasGreetVis{
+	opacity: 1;
+  	-webkit-transition: all 0.3s 4.5s cubic-bezier(.34,.87,.17,1.03);
+	   -moz-transition: all 0.3s 4.5s cubic-bezier(.34,.87,.17,1.03);
+		-ms-transition: all 0.3s 4.5s cubic-bezier(.34,.87,.17,1.03);
+		 -o-transition: all 0.3s 4.5s cubic-bezier(.34,.87,.17,1.03);
+			transition: all 0.3s 4.5s cubic-bezier(.34,.87,.17,1.03);
+}
+.merryXmasGreet span{
+	display: block;
+}
+.merryXmasGreet span:nth-child(4){
+	font-size: 30px;
+	font-weight: bold;
+}
+.SetUpTree{
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin: -35px 0 0 -190px;
+	z-index: 5000;
+	width: 380px;
+	height: 70px;
+	font-family: 'Lobster', cursive;
+	color: #fff;
+	font-size: 25px;
+	border: 1px solid #4b0300;
+	outline: none;
+	cursor: pointer;
+	background: #ab3123;
+	background: -moz-linear-gradient(top,  #ab3123 0%, #5d0d0b 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ab3123), color-stop(100%,#5d0d0b));
+	background: -webkit-linear-gradient(top,  #ab3123 0%,#5d0d0b 100%);
+	background: -o-linear-gradient(top,  #ab3123 0%,#5d0d0b 100%);
+	background: -ms-linear-gradient(top,  #ab3123 0%,#5d0d0b 100%);
+	background: linear-gradient(to bottom,  #ab3123 0%,#5d0d0b 100%);
+	-webkit-border-radius: 16px;
+	   -moz-border-radius: 16px;
+			border-radius: 16px;
+	-webkit-box-shadow: 0 1px 3px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.25);
+	   -moz-box-shadow: 0 1px 3px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.25);
+			box-shadow: 0 1px 3px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.25);
+}
+.SetUpTree:hover, .SetUpTree:active{
+	opacity: 0.8;
+}
+.xmasTreePart {
+	position: absolute;
+	z-index: 10;
+	-webkit-transition: all 0.05s cubic-bezier(.34,.87,.17,1.03);
+	   -moz-transition: all 0.05s cubic-bezier(.34,.87,.17,1.03);
+		-ms-transition: all 0.05s cubic-bezier(.34,.87,.17,1.03);
+		 -o-transition: all 0.05s cubic-bezier(.34,.87,.17,1.03);
+			transition: all 0.05s cubic-bezier(.34,.87,.17,1.03);
+}
+.preClick .xmasTreePartEffect1{
+	z-index: 10;
+	-webkit-animation: xmasTreePartEffect1Anim 3.5s 0.5s infinite ease-in-out;
+	   -moz-animation: xmasTreePartEffect1Anim 3.5s 0.5s infinite ease-in-out;
+	   	-ms-animation: xmasTreePartEffect1Anim 3.5s 0.5s infinite ease-in-out;
+	     -o-animation: xmasTreePartEffect1Anim 3.5s 0.5s infinite ease-in-out;
+			animation: xmasTreePartEffect1Anim 3.5s 0.5s infinite ease-in-out;
+}
+@-webkit-keyframes xmasTreePartEffect1Anim{
+	0%   { margin-top: 0; }
+	50%  { margin-top: 15px; }
+	100% { margin-top: 0; }
+}
+@-moz-keyframes xmasTreePartEffect1Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 15px; }
+	100% { margin-top: 0; }
+}
+@-o-keyframes xmasTreePartEffect1Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 15px; }
+	100% { margin-top: 0; }
+}
+@keyframes xmasTreePartEffect1Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 15px; }
+	100% { margin-top: 0; }
+}
+.preClick .xmasTreePartEffect2{
+	z-index: 20;
+	-webkit-animation: xmasTreePartEffect2Anim 3.5s infinite ease-in-out;
+	   -moz-animation: xmasTreePartEffect2Anim 3.5s infinite ease-in-out;
+	   	-ms-animation: xmasTreePartEffect2Anim 3.5s infinite ease-in-out;
+	     -o-animation: xmasTreePartEffect2Anim 3.5s infinite ease-in-out;
+			animation: xmasTreePartEffect2Anim 3.5s infinite ease-in-out;
+}
+@-webkit-keyframes xmasTreePartEffect2Anim{
+	0%   { margin-top: 0; }
+	50%  { margin-top: 20px; }
+	100% { margin-top: 0; }
+}
+@-moz-keyframes xmasTreePartEffect2Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 20px; }
+	100% { margin-top: 0; }
+}
+@-o-keyframes xmasTreePartEffect2Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 20px; }
+	100% { margin-top: 0; }
+}
+@keyframes xmasTreePartEffect2Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 20px; }
+	100% { margin-top: 0; }
+}
+.preClick .xmasTreePartEffect3{
+	z-index: 30;
+	-webkit-animation: xmasTreePartEffect3Anim 3.5s infinite ease-in-out;
+	   -moz-animation: xmasTreePartEffect3Anim 3.5s infinite ease-in-out;
+	   	-ms-animation: xmasTreePartEffect3Anim 3.5s infinite ease-in-out;
+	     -o-animation: xmasTreePartEffect3Anim 3.5s infinite ease-in-out;
+			animation: xmasTreePartEffect3Anim 3.5s infinite ease-in-out;
+}
+@-webkit-keyframes xmasTreePartEffect3Anim{
+	0%   { margin-top: 0; }
+	50%  { margin-top: 20px; }
+	100% { margin-top: 0; }
+}
+@-moz-keyframes xmasTreePartEffect3Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 25px; }
+	100% { margin-top: 0; }
+}
+@-o-keyframes xmasTreePartEffect3Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 25px; }
+	100% { margin-top: 0; }
+}
+@keyframes xmasTreePartEffect3Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 25px; }
+	100% { margin-top: 0; }
+}
+.preClick .xmasTreePartEffect4{
+	z-index: 40;
+	-webkit-animation: xmasTreePartEffect4Anim 4.5s infinite ease-in-out;
+	   -moz-animation: xmasTreePartEffect4Anim 4.5s infinite ease-in-out;
+	   	-ms-animation: xmasTreePartEffect4Anim 4.5s infinite ease-in-out;
+	     -o-animation: xmasTreePartEffect4Anim 4.5s infinite ease-in-out;
+			animation: xmasTreePartEffect4Anim 4.5s infinite ease-in-out;
+}
+@-webkit-keyframes xmasTreePartEffect4Anim{
+	0%   { margin-top: 0; }
+	50%  { margin-top: 5px; }
+	100% { margin-top: 0; }
+}
+@-moz-keyframes xmasTreePartEffect4Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 25px; }
+	100% { margin-top: 0; }
+}
+@-o-keyframes xmasTreePartEffect4Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 25px; }
+	100% { margin-top: 0; }
+}
+@keyframes xmasTreePartEffect4Anim {
+	0%   { margin-top: 0; }
+	50%  { margin-top: 25px; }
+	100% { margin-top: 0; }
+}
+.xmasTreePartNo1{
+	width: 26px;
+	height: 28px;
+	top: 30px;
+	left: 100px;
+	background: url(https://prashantsani.com/xmas2013/layers/01.svg) no-repeat;
+}
+.xmasTreePartNo2{
+	width: 36px;
+	height: 19px;
+	top: 56px;
+	left: 88px;
+	background: url(https://prashantsani.com/xmas2013/layers/02.svg) no-repeat;
+}
+.xmasTreePartNo3{
+	width: 44px;
+	height: 34px;
+	top: 243px;
+	left: 196px;
+	background: url(https://prashantsani.com/xmas2013/layers/03.svg) no-repeat;
+}
+.xmasTreePartNo4{
+	width: 68px;
+	height: 70px;
+	top: 207px;
+	left: 208px;
+	background: url(https://prashantsani.com/xmas2013/layers/04.svg) no-repeat;
+}
+.xmasTreePartNo5{
+	width: 91px;
+	height: 25px;
+	top: 253px;
+	left: 106px;
+	background: url(https://prashantsani.com/xmas2013/layers/05.svg) no-repeat;
+}
+.xmasTreePartNo6{
+	width: 63px;
+	height: 44px;
+	top: 234px;
+	left: 107px;
+	background: url(https://prashantsani.com/xmas2013/layers/06.svg) no-repeat;
+}
+.xmasTreePartNo7{
+	width: 51px;
+	height: 59px;
+	top: 220px;
+	left: 146px;
+	background: url(https://prashantsani.com/xmas2013/layers/07.svg) no-repeat;
+}
+.xmasTreePartNo8{
+	width: 63px;
+	height: 70px;
+	top: 208.0px;
+	left: 159px;
+	background: url(https://prashantsani.com/xmas2013/layers/08.svg) no-repeat;
+}
+.xmasTreePartNo9{
+	width: 63px;
+	height: 43px;
+	top: 177px;
+	left: 160px;
+	background: url(https://prashantsani.com/xmas2013/layers/09.svg) no-repeat;
+}
+.xmasTreePartNo10{
+	width: 32px;
+	height: 27px;
+	top: 252px;
+	left: 4px;
+	background: url(https://prashantsani.com/xmas2013/layers/10.svg) no-repeat;
+}
+.xmasTreePartNo11{
+	width: 26px;
+	height: 59px;
+	top: 221px;
+	left: 23px;
+	background: url(https://prashantsani.com/xmas2013/layers/11.svg) no-repeat;
+}
+.xmasTreePartNo12{
+	width: 38px;
+	height: 59px;
+	top: 220px;
+	left: 35px;
+	background: url(https://prashantsani.com/xmas2013/layers/12.svg) no-repeat;
+}
+.xmasTreePartNo13{
+	width: 60px;
+	height: 101px;
+	top: 178px;
+	left: 48px;
+	background: url(https://prashantsani.com/xmas2013/layers/13.svg) no-repeat;
+}
+.xmasTreePartNo14{
+	width: 100px;
+	height: 101px;
+	top: 178px;
+	left: 80px;
+	background: url(https://prashantsani.com/xmas2013/layers/14.svg) no-repeat;
+}
+.xmasTreePartNo15{
+	width: 22px;
+	height: 22px;
+	top: 178px;
+	left: 176px;
+	background: url(https://prashantsani.com/xmas2013/layers/15.svg) no-repeat;
+}
+.xmasTreePartNo16{
+	width: 100px;
+	height: 46px;
+	top: 154px;
+	left: 80px;
+	background: url(https://prashantsani.com/xmas2013/layers/16.svg) no-repeat;
+}
+.xmasTreePartNo17{
+	width: 63px;
+	height: 52px;
+	top: 126px;
+	left: 81px;
+	background: url(https://prashantsani.com/xmas2013/layers/17.svg) no-repeat;
+}
+.xmasTreePartNo18{
+	width: 28px;
+	height: 46px;
+	top: 133px;
+	left: 69px;
+	background: url(https://prashantsani.com/xmas2013/layers/18.svg) no-repeat;
+}
+.xmasTreePartNo19{
+	width: 53px;
+	height: 20px;
+	top: 121px;
+	left: 68px;
+	background: url(https://prashantsani.com/xmas2013/layers/19.svg) no-repeat;
+}
+.xmasTreePartNo20{
+	width: 42px;
+	height: 39px;
+	top: 140px;
+	left: 40px;
+	background: url(https://prashantsani.com/xmas2013/layers/20.svg) no-repeat;
+}
+.xmasTreePartNo21{
+	width: 37px;
+	height: 39px;
+	top: 89.3px;
+	left: 84px;
+	background: url(https://prashantsani.com/xmas2013/layers/21.svg) no-repeat;
+}
+.xmasTreePartNo22{
+	width: 69px;
+	height: 44px;
+	top: 135px;
+	left: 171px;
+	background: url(https://prashantsani.com/xmas2013/layers/22.svg) no-repeat;
+}
+.xmasTreePartNo23{
+	width: 69px;
+	height: 55px;
+	top: 124px;
+	left: 171px;
+	background: url(https://prashantsani.com/xmas2013/layers/23.svg) no-repeat;
+}
+.xmasTreePartNo24{
+	width: 29px;
+	height: 36px;
+	top: 90px;
+	left: 169px;
+	background: url(https://prashantsani.com/xmas2013/layers/24.svg) no-repeat;
+}
+.xmasTreePartNo25{
+	width: 60px;
+	height: 84px;
+	top: 116px;
+	left: 120px;
+	background: url(https://prashantsani.com/xmas2013/layers/25.svg) no-repeat;
+}
+.xmasTreePartNo26{
+	width: 17px;
+	height: 39px;
+	top: 80px;
+	left: 154px;
+	background: url(https://prashantsani.com/xmas2013/layers/26.svg) no-repeat;
+}
+.xmasTreePartNo27{
+	width: 50px;
+	height: 49px;
+	top: 79px;
+	left: 120px;
+	background: url(https://prashantsani.com/xmas2013/layers/27.svg) no-repeat;
+}
+.xmasTreePartNo28{
+	width: 15px;
+	height: 39px;
+	top: 89px;
+	left: 108px;
+	background: url(https://prashantsani.com/xmas2013/layers/28.svg) no-repeat;
+}
+.xmasTreePartNo29{
+	width: 50px;
+	height: 16px;
+	top: 74px;
+	left: 75px;
+	background: url(https://prashantsani.com/xmas2013/layers/29.svg) no-repeat;
+}
+.xmasTreePartNo30{
+	width: 34px;
+	height: 55px;
+	top: 73.5px;
+	left: 120px;
+	background: url(https://prashantsani.com/xmas2013/layers/30.svg) no-repeat;
+}
+.xmasTreePartNo31{
+	width: 35px;
+	height: 34px;
+	top: 57px;
+	left: 171px;
+	background: url(https://prashantsani.com/xmas2013/layers/31.svg) no-repeat;
+}
+.xmasTreePartNo32{
+	width: 26px;
+	height: 34px;
+	top: 58px;
+	left: 154px;
+	background: url(https://prashantsani.com/xmas2013/layers/32.svg) no-repeat;
+}
+.xmasTreePartNo33{
+	width: 32px;
+	height: 31px;
+	top: 50px;
+	left: 123px;
+	background: url(https://prashantsani.com/xmas2013/layers/33.svg) no-repeat;
+}
+.xmasTreePartNo34{
+	width: 26px;
+	height: 25px;
+	top: 50px;
+	left: 101px;
+	background: url(https://prashantsani.com/xmas2013/layers/34.svg) no-repeat;
+}
+.xmasTreePartNo35{
+	width: 26px;
+	height: 33px;
+	top: 49px;
+	left: 153px;
+	background: url(https://prashantsani.com/xmas2013/layers/35.svg) no-repeat;
+}
+.xmasTreePartNo36{
+	width: 26px;
+	height: 27px;
+	top: 33px;
+	left: 153px;
+	background: url(https://prashantsani.com/xmas2013/layers/36.svg) no-repeat;
+}
+.xmasTreePartNo37{
+	width: 28px;
+	height: 11px;
+	top: 40px;
+	left: 126px;
+	background: url(https://prashantsani.com/xmas2013/layers/37.svg) no-repeat;
+}
+.xmasTreePartNo38{
+	width: 13px;
+	height: 21px;
+	top: 31px;
+	left: 121px;
+	background: url(https://prashantsani.com/xmas2013/layers/38.svg) no-repeat;
+}
+.xmasTreePartNo39{
+	width: 26px;
+	height: 18px;
+	top: 31px;
+	left: 134px;
+	background: url(https://prashantsani.com/xmas2013/layers/39.svg) no-repeat;
+}
+.xmasTreePartNo40{
+	width: 26px;
+	height: 35px;
+	top: 6px;
+	left: 134px;
+	background: url(https://prashantsani.com/xmas2013/layers/40.svg) no-repeat;
+}
+.xmasTreePartNo41{
+	width: 202px;
+	height: 131px;
+	top: 49px;
+	left: 41px;
+	background: url(https://prashantsani.com/xmas2013/layers/41.svg) no-repeat;
+	z-index: 1;
 }
